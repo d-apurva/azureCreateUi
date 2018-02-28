@@ -35,14 +35,21 @@
                 "toolTip": "Provide admin username for the virtual machine"
             },
             {
-                "name": "sshPublicKey",
-                "type": "Microsoft.Compute.CredentialsCombo",
-                "label": "SSH Public Key",
-                "osPlatform": "Linux",
-                "constraints": {
-                    "required": true
-                },
-                "toolTip": "SSH public key for the Virtual Machines."
+            "name": "adminCredentials",
+            "type": "Microsoft.Compute.CredentialsCombo",
+            "label": {
+              "authenticationType": "Authentication type",
+              "password": "Password",
+              "confirmPassword": "Confirm password",
+              "sshPublicKey": "SSH public key"
+            },
+            "constraints": {
+              "required": true
+            },
+            "options": {
+              "hideConfirmation": false
+            },
+            "osPlatform": "Linux"
             },
             {
                 "name": "installScript",
