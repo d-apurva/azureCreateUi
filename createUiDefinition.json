@@ -38,7 +38,7 @@
                 "name": "sshPublicKey",
                 "type": "Microsoft.Compute.CredentialsCombo",
                 "label": "SSH Public Key",
-                "osPlatform": "Linux",
+                "osPlatform": "Windows",
                 "constraints": {
                     "required": true
                 },
@@ -48,7 +48,7 @@
                 "name": "installScript",
                 "type": "Microsoft.Compute.UserNameTextBox",
                 "label": "Install Script",
-                "osPlatform": "Linux",
+                "osPlatform": "Windows",
                 "constraints": {
                     "required": true
                 },
@@ -58,7 +58,7 @@
                 "name": "installCommand",
                 "type": "Microsoft.Compute.UserNameTextBox",
                 "label": "Install Command",
-                "osPlatform": "Linux",
+                "osPlatform": "Windows",
                 "constraints": {
                     "required": true
                 },
@@ -68,7 +68,7 @@
                 "name": "nodeCount",
                 "type": "Microsoft.Compute.UserNameTextBox",
                 "label": "Node Count",
-                "osPlatform": "Linux",
+                "osPlatform": "Windows",
                 "constraints": {
                     "required": true
                 },
@@ -79,10 +79,10 @@
       ],
       "outputs": {
         "clusterName": "[basics('clusterName')]",        
-        "adminUserName": "[steps('deploymentDetails').adminUserName]",
-        "sshPublicKey": "[steps('deploymentDetails').sshPublicKey]",
-        "installScript": "[steps('deploymentDetails').installScript]",
-        "installCommand": "[steps('deploymentDetails').installCommand]",
+        "adminUserName": "[steps('masternoodeConfiguration').adminUserName]",
+        "sshPublicKey": "[steps('masternoodeConfiguration').sshPublicKey]",
+        "installScript": "[steps('masternoodeConfiguration').installScript]",
+        "installCommand": "[steps('masternoodeConfiguration').installCommand]",
         "nodeCount": "[steps('deploymentDetails').nodeCount]",
         "location": "[location()]"
       }
