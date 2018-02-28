@@ -38,7 +38,7 @@
                 "name": "sshPublicKey",
                 "type": "Microsoft.Compute.CredentialsCombo",
                 "label": "SSH Public Key",
-                "osPlatform": "Windows",
+                "osPlatform": "Linux",
                 "constraints": {
                     "required": true
                 },
