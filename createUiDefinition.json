@@ -1,0 +1,90 @@
+{
+    "handler": "Microsoft.Compute.MultiVm",
+    "version": "0.0.1-preview",
+    "parameters": {
+      "basics": [
+        {
+          "name": "clusterName",
+          "type": "Microsoft.Compute.UserNameTextBox",
+          "label": "Cluster Name",
+          "toolTip": "DNS prefix for the application.",
+          "osPlatform": "Linux",
+          "constraints": {
+            "required": true
+          }
+        }
+      ],
+      "steps": [
+        {
+          "name": "masternoodeConfiguration",
+          "label": "Master and Node Configuration",
+          "subLabel": {
+            "preValidation": "Required",
+            "postValidation": "Done"
+          },
+          "bladeTitle": "Master Configuration",
+          "elements": [
+            {
+                "name": "adminUserName",
+                "type": "Microsoft.Compute.UserNameTextBox",
+                "label": "Admin username",
+                "osPlatform": "Windows",
+                "constraints": {
+                    "required": true
+                },
+                "toolTip": "Provide admin username for the virtual machine"
+            },
+            {
+                "name": "sshPublicKey",
+                "type": "Microsoft.Compute.CredentialsCombo",
+                "label": "SSH Public Key",
+                "osPlatform": "Linux",
+                "constraints": {
+                    "required": true
+                },
+                "toolTip": "SSH public key for the Virtual Machines."
+            },
+            {
+                "name": "installScript",
+                "type": "Microsoft.Compute.UserNameTextBox",
+                "label": "Install Script",
+                "osPlatform": "Windows",
+                "constraints": {
+                    "required": true
+                },
+                "toolTip": "Installation script path"
+            },
+            {
+                "name": "installCommand",
+                "type": "Microsoft.Compute.UserNameTextBox",
+                "label": "Install Command",
+                "osPlatform": "Windows",
+                "constraints": {
+                    "required": true
+                },
+                "toolTip": "Installation command"
+            },
+            {
+                "name": "nodeCount",
+                "type": "Microsoft.Compute.UserNameTextBox",
+                "label": "Node Count",
+                "osPlatform": "Windows",
+                "constraints": {
+                    "required": true
+                },
+                "toolTip": "Number of Swarm worker nodes in the cluster."
+            } 
+          ]
+        }
+      ],
+      "outputs": {
+        "clusterName": "[basics('clusterName')]",        
+        "adminUserName": "[steps('deploymentDetails').adminUserName]",
+        "sshPublicKey": "[steps('deploymentDetails').sshPublicKey]",
+        "installScript": "[steps('deploymentDetails').installScript]",
+        "installCommand": "[steps('deploymentDetails').installCommand]",
+        "nodeCount": "[steps('deploymentDetails').nodeCount]",
+        "location": "[location()]"
+      }
+    }
+  }
